@@ -41,3 +41,15 @@ function showCollection(array) {
 }
 
 showCollection(collection);
+
+function findByArtist(artist) {
+    let emptyArray = [];
+    for (let item of collection) {
+        if (item.artist === artist) {
+            emptyArray.push(item);
+        }
+    }
+    return emptyArray;
+}
+
+console.log('Finding all entries by Post Malone', findByArtist('Post Malone'));
