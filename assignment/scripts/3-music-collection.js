@@ -23,3 +23,21 @@ console.log(`Added ablum:`, addToCollection('Bearbongs & Bentleys', 'Post Malone
 console.log(`Added ablum:`, addToCollection('PTX, Vol, IV: Classics', 'Pentatonix', 2017));
 
 console.log(`Added ablum:`, addToCollection('The Search', 'NF', 2019));
+
+function plural(string1, string2, length) {
+    if (length === 1) {
+        return string1
+    }
+    return string2
+}
+
+function showCollection(array) {
+    let cLength = array.length;
+    console.log(`There ${plural('is', 'are', cLength)} ${array.length} item${plural('', 's', cLength)} in this collection`);
+
+    for (let item of array) {
+        console.log(`${item.title} by ${item.artist}, published in ${item.yearPublished.toString()}`);
+    }
+}
+
+showCollection(collection);
