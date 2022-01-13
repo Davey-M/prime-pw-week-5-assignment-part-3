@@ -53,3 +53,4 @@ function findByArtist(artist) {
 }
 
 console.log('Finding all entries by Post Malone', findByArtist('Post Malone'));
+console.log('Finding all entries by Lauv', findByArtist('Lauv'));
