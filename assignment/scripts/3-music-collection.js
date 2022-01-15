@@ -2,6 +2,7 @@ console.log('***** Music Collection *****')
 
 let collection = [];      // Music Collection
 
+// Adds an album to the music collection.
 function addToCollection(title, artist, yearPublished) {
     let object = {
         title: title,
@@ -12,6 +13,7 @@ function addToCollection(title, artist, yearPublished) {
     return object;
 }
 
+// Each of the following adds the album name, artist name, and year published.
 console.log(`Added ablum:`, addToCollection('Stoney', 'Post Malone', 2016));
 
 console.log(`Added ablum:`, addToCollection('Circles', 'Mac Miller', 2020));
@@ -24,6 +26,7 @@ console.log(`Added ablum:`, addToCollection('PTX, Vol, IV: Classics', 'Pentatoni
 
 console.log(`Added ablum:`, addToCollection('The Search', 'NF', 2019));
 
+// This function changes the grammer in the showCollection function depending on the collection length.
 function plural(string1, string2, length) {
     if (length === 1) {
         return string1
@@ -31,6 +34,7 @@ function plural(string1, string2, length) {
     return string2
 }
 
+// This will log each of the items in the collection.
 function showCollection(array) {
     let cLength = array.length;
     console.log(`There ${plural('is', 'are', cLength)} ${array.length} item${plural('', 's', cLength)} in this collection`);
@@ -42,6 +46,7 @@ function showCollection(array) {
 
 showCollection(collection);
 
+// This searches for all the albums from an artist in the collection.
 function findByArtist(artist) {
     let emptyArray = [];
     for (let item of collection) {
@@ -52,5 +57,6 @@ function findByArtist(artist) {
     return emptyArray;
 }
 
+// Tests for showCollection()
 console.log('Finding all entries by Post Malone', findByArtist('Post Malone'));
 console.log('Finding all entries by Lauv', findByArtist('Lauv'));
