@@ -63,6 +63,11 @@ console.log('Finding all entries by Lauv', findByArtist('Lauv'));
 
 // Searches for all albums that fit with every specified parameter.
 function search(params) {
+
+    if (!params || params === {}) {
+        return collection;
+    }
+
     let returnArray = [];
     const { artist, title, year } = params;
 
@@ -96,3 +101,5 @@ function search(params) {
 console.log('Searching for { artist: "Post Malone", year: 2016 }', search({ artist: "Post Malone", year: 2016 }));
 console.log('Searching for { artist: "post malone", year: "2018" }', search({ artist: "post malone", year: '2018' }));
 console.log('Searching for { artist: "lauv", title: "Tattoos Together" }', search({ artist: "lauv", title: "Tattoos Together" }));
+console.log('Searching for {}', search({}));
+console.log('Searching for nothing', search());
