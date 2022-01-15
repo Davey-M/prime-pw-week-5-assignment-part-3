@@ -60,3 +60,39 @@ function findByArtist(artist) {
 // Tests for showCollection()
 console.log('Finding all entries by Post Malone', findByArtist('Post Malone'));
 console.log('Finding all entries by Lauv', findByArtist('Lauv'));
+
+// Searches for all albums that fit with every specified parameter.
+function search(params) {
+    let returnArray = [];
+    const { artist, title, year } = params;
+
+    loopLabel: for (let i = 0; i < collection.length; i++) {
+        let item = collection[i];
+
+        if (artist) {
+            if (item.artist.toUpperCase() !== artist.toUpperCase()) {
+                continue loopLabel;
+            }
+        }
+
+        if (title) {
+            if (item.title.toUpperCase() !== title.toUpperCase()) {
+                continue loopLabel;
+            }
+        }
+
+        if (year) {
+            if (item.yearPublished != year) {
+                continue loopLabel;
+            }
+        }
+        
+        returnArray.push(item);
+    }
+
+    return returnArray;
+}
+
+console.log('Searching for { artist: "Post Malone", year: 2016 }', search({ artist: "Post Malone", year: 2016 }));
+console.log('Searching for { artist: "post malone", year: "2018" }', search({ artist: "post malone", year: '2018' }));
+console.log('Searching for { artist: "lauv", title: "Tattoos Together" }', search({ artist: "lauv", title: "Tattoos Together" }));
