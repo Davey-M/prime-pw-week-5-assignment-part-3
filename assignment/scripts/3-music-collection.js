@@ -80,6 +80,9 @@ function showCollection(array) {
 
     for (let item of array) {
         console.log(`${item.title} by ${item.artist}, published in ${item.yearPublished.toString()}`);
+        for (let track of item.tracks) {
+            console.log(item.tracks.indexOf(track) + 1, `${track.name}: ${track.duration}`);
+        }
     }
 }
 
