@@ -111,7 +111,7 @@ function search(params) {
     }
 
     let returnArray = [];
-    const { artist, title, year } = params;
+    const { artist, title, year, trackName } = params;
 
     loopLabel: for (let i = 0; i < collection.length; i++) {
         let item = collection[i];
@@ -133,6 +133,18 @@ function search(params) {
                 continue loopLabel;
             }
         }
+        if (trackName) {
+            let test = false;
+            for (let track of item.tracks) {
+                if (track.name.toUpperCase() === trackName.toUpperCase()) {
+                    test = true;
+                }
+            }
+
+            if (test === false) {
+                continue loopLabel;
+            }
+        }
         
         returnArray.push(item);
     }
@@ -141,6 +153,7 @@ function search(params) {
 }
 
 console.log('Searching for { artist: "Post Malone", year: 2016 }', search({ artist: "Post Malone", year: 2016 }));
+console.log('Searching for { artist: "Post Malone", year: 2016 , trackName: "Big Lie"}', search({ artist: "Post Malone", year: 2016 , trackName: "Big Lie"}));
 console.log('Searching for { artist: "post malone", year: "2018" }', search({ artist: "post malone", year: '2018' }));
 console.log('Searching for { artist: "lauv", title: "Tattoos Together" }', search({ artist: "lauv", title: "Tattoos Together" }));
 console.log('Searching for {}', search({}));
